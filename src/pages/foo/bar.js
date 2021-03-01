@@ -1,11 +1,10 @@
 // Module imports
 import { useRouter } from 'next/router'
-import { getLastModifiedDates } from 'helpers/getLastModifiedDates'
 import { useLastModifiedDate } from 'hooks/useLastModifiedDate'
 import Link from 'next/link'
 
-export default function Version(props) {
-	const lastModifiedDate = useLastModifiedDate(props)
+export default function Version() {
+	const lastModifiedDate = useLastModifiedDate()
 
 	return (
 		<>
@@ -27,5 +26,3 @@ export default function Version(props) {
 		</>
 	)
 }
-
-export const getStaticProps = getLastModifiedDates
