@@ -1,0 +1,13 @@
+{
+  "name": "next-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "git-jiggy": "^1.1.1",
+    "isomorphic-git": "^1.8.1",
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
