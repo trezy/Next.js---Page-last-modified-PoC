@@ -7,7 +7,6 @@ import Link from 'next/link'
 export default function Version(props) {
 	const lastModifiedDate = useLastModifiedDate(props)
 
-	console.log({lastModifiedDate})
 	return (
 		<>
 			<header><h1>Home</h1></header>
