@@ -8,14 +8,6 @@ export default function Version(props) {
 
 	return (
 		<>
-			<dl>
-				<dt>Built at</dt>
-				<dd>{props.builtAt}</dd>
-
-				<dt>Built at</dt>
-				<dd>{props.lastModifiededAt}</dd>
-			</dl>
-
 			<pre>
 				{JSON.stringify(props, null, 2)}
 			</pre>
@@ -26,33 +18,25 @@ export default function Version(props) {
 export async function getStaticProps(blep) {
 	const [
 		fs,
-		{ getStagedFiles },
+		git,
 		path,
 		{ promisify },
 	] = await Promise.all([
 		import('fs'),
-		import('git-jiggy'),
+		import('isomorphic-git'),
 		import('path'),
 		import('util'),
 	])
 
-	const foo = await getStagedFiles()
-
-	// await git.log({
-	// 	depth: 1,
-	// 	dir: process.cwd(),
-	// 	fs,
-	// })
+	const foo = await git.log({
+		depth: 1,
+		dir: path.resolve(process.cwd(), 'pages', 'index.js'),
+		fs,
+	})
 
 	return {
 		props: {
 			foo,
-			// builtAt: Date.now(),
-			// lastModifiededAt: Date.now(),
-			// paths: [
-			// 	process.cwd(),
-			// 	__dirname,
-			// ]
 		},
 	}
 }
